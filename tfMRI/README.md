@@ -23,8 +23,6 @@ We integrate some useful tools/algorithms which are frequently carried out in ta
 
 Customed GLM analyses were conducted on the surface data to deconvovle the hemodynamic effects of BOLD signal. 
 
-As the 180 action categories were cycled once every three runs, we modeled the data from each cycle to estimate the BOLD responses to each category. The vertex-specific responses (i.e., beta values) estimated for each clip were used for further analyses.
-
 ### Multi-voxel pattern analysis (MVPA)
 
 **code: ./MVPA.py**
