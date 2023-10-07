@@ -2,13 +2,13 @@
 ## Preprocess procedure
 The MRI data were first converted into the Neuroimaging Informatics Technology Initiative (NIfTI) format and then organized into the Brain Imaging Data Structure (BIDS) using HeuDiConv (https://github.com/nipy/heudiconv). Then fMRIprep 20.2.1 were used to perform volume prepocess. Detailed information on fMRIprep pipelines can be found in the online documentation of the fMRIPrep(https://fmriprep.org). Then, all the preprocessed individual fMRI data were registered onto the 32k fsLR space using the Ciftify toolbox.
 
-## Volume-based process
+### Volume-based process
 **code: ./volume_preprocess/volume_preprocess.sh**
 
 The data2bids.py helps you to reorganize the data structure to BIDS. You have to first prepare the scan_info.xlsx to fit for your experiment protocol and design. 
 fMRIprep were performed using docker and detailed usage notes are available in codes, please read carefully and modify variables to satisfy your customed environment.
 
-## Surface-based process
+### Surface-based process
 **code: ./surface_preprocess/surface_preprocess.sh**
 
 The cifify_recon_all function was used to register and resample individual surfaces to 32k standard fsLR surfaces via surface-based alignment. The ciftfy_subject_fmri function was then used to project functional MRI data onto the fsLR surface. 
@@ -21,10 +21,8 @@ We integrate some useful tools/algorithms which are frequently carried out in ta
 
 **code: ./Encoding.py**
 
-** Introduction **
 Customed GLM analyses were conducted on the surface data to deconvovle the hemodynamic effects of BOLD signal. 
 
-** Implementation **
 As the 180 action categories were cycled once every three runs, we modeled the data from each cycle to estimate the BOLD responses to each category. The vertex-specific responses (i.e., beta values) estimated for each clip were used for further analyses.
 
 ### Multi-voxel pattern analysis (MVPA)
@@ -69,6 +67,7 @@ The CNR was calculated as the averaged beta values across all stimuli divided by
 ### Input and output 
 
 **code: ./io.py**
+
 We prepare several input and output function to transform neuroimaging files into matrix for further modeling. 
 
 
